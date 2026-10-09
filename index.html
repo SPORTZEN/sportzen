@@ -1,1303 +1,2953 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>SPORTZEN | Train • Play • Grow Together</title>
-
-  <meta name="description" content="SPORTZEN offers physical education, sports training, movement activities and age-appropriate programmes for young children and schools.">
-
-  <style>
-    :root {
-      --navy: #071b36;
-      --blue: #1265c5;
-      --cyan: #36c5ed;
-      --light: #f3f8fd;
-      --white: #ffffff;
-      --text: #26364a;
-      --muted: #66778c;
-      --border: #e2eaf3;
-      --radius: 18px;
-      --shadow: 0 12px 35px rgba(7, 27, 54, 0.09);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(1140px, 90%);
-      margin: auto;
-    }
-
-    .section {
-      padding: 90px 0;
-    }
-
-    .section-light {
-      background: var(--light);
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 48px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      color: var(--blue);
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.2;
-      color: var(--navy);
-    }
-
-    h2 {
-      font-size: clamp(30px, 4vw, 43px);
-      margin-bottom: 18px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    /* HEADER AND NAVIGATION */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .logo-box {
-      width: 65px;
-      height: 60px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .logo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .brand-name {
-      font-size: 23px;
-      font-weight: 900;
-      letter-spacing: 1.4px;
-      color: var(--navy);
-      line-height: 1.2;
-    }
-
-    .brand-tagline {
-      font-size: 9px;
-      letter-spacing: 1px;
-      color: var(--blue);
-      font-weight: 800;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--navy);
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--blue);
-    }
-
-    .nav-links .nav-cta {
-      color: white;
-      background: var(--blue);
-      padding: 12px 19px;
-      border-radius: 8px;
-    }
-
-    .menu-toggle {
-      display: none;
-      border: 0;
-      background: var(--light);
-      color: var(--navy);
-      border-radius: 8px;
-      padding: 9px 12px;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    /* BUTTONS */
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 23px;
-      border-radius: 9px;
-      font-weight: 800;
-      font-size: 14px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-
-    .btn-primary {
-      background: var(--blue);
-      color: white;
-    }
-
-    .btn-outline {
-      border: 1px solid #c8d9eb;
-      color: var(--navy);
-      background: white;
-    }
-
-    /* HOME */
-
-    .hero {
-      background:
-        radial-gradient(circle at 85% 15%, rgba(54, 197, 237, 0.17), transparent 28%),
-        linear-gradient(135deg, #f5f9ff, #ffffff 60%);
-      padding: 90px 0 85px;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .hero h1 {
-      font-size: clamp(39px, 5.5vw, 64px);
-      letter-spacing: -2px;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 span {
-      color: var(--blue);
-    }
-
-    .hero-copy {
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 550px;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-    }
-
-    .hero-note {
-      margin-top: 25px;
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.5px;
-    }
-
-    .hero-photo {
-      position: relative;
-      padding: 12px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 25px;
-      box-shadow: 0 25px 60px rgba(7, 27, 54, 0.14);
-    }
-
-    .hero-photo img {
-      width: 100%;
-      height: 390px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 17px;
-    }
-
-    .photo-label {
-      position: absolute;
-      bottom: 27px;
-      left: 27px;
-      right: 27px;
-      padding: 15px 18px;
-      border-radius: 12px;
-      color: white;
-      background: rgba(7, 27, 54, 0.88);
-      backdrop-filter: blur(8px);
-    }
-
-    .photo-label strong {
-      display: block;
-      font-size: 15px;
-    }
-
-    .photo-label span {
-      font-size: 12px;
-      color: #d6eaff;
-    }
-
-    /* ABOUT */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-panel {
-      background: linear-gradient(145deg, var(--navy), #104b91);
-      padding: 38px;
-      border-radius: 22px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-panel::after {
-      content: "";
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border: 35px solid rgba(54, 197, 237, 0.14);
-      border-radius: 50%;
-      right: -75px;
-      bottom: -90px;
-    }
-
-    .about-panel .eyebrow {
-      color: var(--cyan);
-    }
-
-    .about-panel h3 {
-      color: white;
-      font-size: 29px;
-      margin-bottom: 18px;
-    }
-
-    .about-panel p {
-      color: #d8e7f8;
-      position: relative;
-      z-index: 1;
-    }
-
-    .about-content > p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .feature-list li {
-      background: var(--light);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 13px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .feature-list li::before {
-      content: "✓";
-      color: var(--blue);
-      font-weight: 900;
-      margin-right: 8px;
-    }
-
-    /* OUR PROGRAMMES */
-
-    .programmes-section {
-      background: var(--light);
-    }
-
-    .programme-feature {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: center;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 23px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      margin-bottom: 42px;
-    }
-
-    .programme-image {
-      min-height: 340px;
-      height: 100%;
-      overflow: hidden;
-      background: #e3edf7;
-    }
-
-    .programme-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 340px;
-      object-fit: cover;
-      transition: transform 0.5s;
-    }
-
-    .programme-feature:hover .programme-image img {
-      transform: scale(1.035);
-    }
-
-    .programme-description {
-      padding: 35px 35px 35px 0;
-    }
-
-    .programme-description h3 {
-      font-size: 30px;
-      margin-bottom: 17px;
-    }
-
-    .programme-description p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .programme-description ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 9px 15px;
-      margin-top: 22px;
-    }
-
-    .programme-description li {
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .programme-description li::before {
-      content: "✓ ";
-      color: var(--blue);
-      font-weight: 900;
-    }
-
-    .programme-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .programme-card {
-      background: white;
-      padding: 27px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-
-    .programme-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .programme-icon {
-      width: 49px;
-      height: 49px;
-      border-radius: 13px;
-      background: #e8f4ff;
-      display: grid;
-      place-items: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .programme-card h3 {
-      font-size: 18px;
-      margin-bottom: 11px;
-    }
-
-    .programme-card p {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .programme-note {
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 30px;
-    }
-
-    /* SCHOOL PARTNERSHIPS */
-
-    .partnership-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .partnership-card {
-      padding: 26px 20px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: white;
-    }
-
-    .step-number {
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
-    }
-
-    .partnership-card h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .partnership-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* CONTACT */
-
-    .contact-section {
-      background: var(--navy);
-      color: white;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .contact-section h2 {
-      color: white;
-    }
-
-    .contact-section .eyebrow {
-      color: var(--cyan);
-    }
-
-    .contact-intro {
-      color: #c8d9ec;
-      margin-bottom: 25px;
-      max-width: 550px;
-    }
-
-    .contact-items {
-      display: grid;
-      gap: 16px;
-    }
-
-    .contact-item {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 17px 20px;
-      border-radius: 12px;
-    }
-
-    .contact-item span {
-      display: block;
-      color: #9fc9f7;
-      font-size: 11px;
-      letter-spacing: 1px;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .contact-item a,
-    .contact-item p {
-      color: white;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-item a:hover {
-      color: var(--cyan);
-    }
-
-    .contact-card {
-      background: white;
-      color: var(--text);
-      border-radius: 20px;
-      padding: 32px;
-    }
-
-    .contact-card h3 {
-      font-size: 25px;
-      margin-bottom: 12px;
-    }
-
-    .contact-card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    .contact-card .btn {
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #041226;
-      color: #b5c5d8;
-      padding: 25px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      font-size: 12px;
-    }
-
-    .footer-brand {
-      font-weight: 900;
-      color: white;
-      letter-spacing: 1.5px;
-    }
-
-    .footer-tagline {
-      color: var(--cyan);
-      font-size: 10px;
-      letter-spacing: 1px;
-      margin-top: 3px;
-    }
-
-    /* TABLET */
-
-    @media (max-width: 950px) {
-      .nav-links {
-        gap: 13px;
-      }
-
-      .nav-links a {
-        font-size: 12px;
-      }
-
-      .hero-grid {
-        gap: 35px;
-      }
-
-      .programme-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .partnership-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 760px) {
-      .section {
-        padding: 65px 0;
-      }
-
-      .navbar {
-        min-height: 75px;
-      }
-
-      .logo-box {
-        width: 54px;
-        height: 52px;
-      }
-
-      .brand-name {
-        font-size: 20px;
-      }
-
-      .brand-tagline {
-        font-size: 8px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 20px 5% 25px;
-        border-bottom: 1px solid var(--border);
-        box-shadow: var(--shadow);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links li a {
-        display: block;
-        padding: 12px 5px;
-        font-size: 14px;
-      }
-
-      .nav-links .nav-cta {
-        text-align: center;
-        margin-top: 8px;
-      }
-
-      .hero {
-        padding: 60px 0;
-      }
-
-      .hero-grid,
-      .about-grid,
-      .programme-feature,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        letter-spacing: -1px;
-      }
-
-      .hero-photo img {
-        height: 300px;
-      }
-
-      .about-grid {
-        gap: 28px;
-      }
-
-      .programme-feature {
-        gap: 0;
-      }
-
-      .programme-image,
-      .programme-image img {
-        min-height: 0;
-        height: 280px;
-      }
-
-      .programme-description {
-        padding: 27px;
-      }
-
-      .programme-description h3 {
-        font-size: 25px;
-      }
-
-      .contact-grid {
-        gap: 30px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        width: 91%;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .feature-list,
-      .programme-description ul,
-      .programme-grid,
-      .partnership-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-panel,
-      .contact-card {
-        padding: 25px;
-      }
-
-      .programme-card {
-        padding: 23px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition: none !important;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPORTZEN | Train • Play • Grow Together</title>
+
+    <meta
+        name="description"
+        content="SPORTZEN offers engaging physical education and sports programmes for young children, helping them develop movement skills, coordination, confidence and active habits."
+    >
+
+    <meta name="theme-color" content="#07172e">
+
+    <style>
+        /* =========================================
+           1. GLOBAL SETTINGS
+        ========================================= */
+
+        :root {
+            --navy: #07172e;
+            --navy-light: #0c2445;
+            --blue: #1254a0;
+            --blue-light: #1b70bd;
+            --cyan: #43d5e8;
+            --white: #ffffff;
+            --text: #243247;
+            --muted: #627187;
+            --light-bg: #f4f7fb;
+            --border: #e2e9f2;
+
+            --container: 1180px;
+            --radius: 18px;
+
+            --shadow:
+                0 16px 45px rgba(7, 23, 46, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family:
+                "Inter",
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(
+                var(--container),
+                calc(100% - 48px)
+            );
+
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin: 0 auto 52px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+
+            margin-bottom: 17px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 2px;
+            background: var(--cyan);
+        }
+
+        .section-heading h2 {
+            color: var(--navy);
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+            margin-bottom: 18px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .accent {
+            color: var(--cyan);
+        }
+
+        /* =========================================
+           2. HEADER AND NAVIGATION
+        ========================================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid rgba(226, 233, 242, 0.9);
+            box-shadow: 0 5px 25px rgba(7, 23, 46, 0.04);
+        }
+
+        .navbar {
+            min-height: 86px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .brand img {
+            width: 180px;
+            height: 66px;
+
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #314057;
+            font-size: 13px;
+            font-weight: 700;
+
+            transition:
+                color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .nav-links .nav-cta {
+            color: var(--white);
+            background: var(--navy);
+
+            padding: 12px 21px;
+            border-radius: 8px;
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .nav-links .nav-cta:hover {
+            color: var(--white);
+            background: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+
+            width: 44px;
+            height: 44px;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background: var(--white);
+            color: var(--navy);
+
+            cursor: pointer;
+            font-size: 25px;
+        }
+
+        /* =========================================
+           3. HERO SECTION
+           Premium navy background.
+           No programme photo in this section.
+        ========================================= */
+
+        .hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+
+            color: var(--white);
+
+            background:
+                radial-gradient(
+                    ellipse at 85% 15%,
+                    rgba(43, 130, 203, 0.30),
+                    transparent 38%
+                ),
+                radial-gradient(
+                    ellipse at 10% 90%,
+                    rgba(36, 103, 171, 0.18),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    125deg,
+                    #061329 0%,
+                    #0a2344 52%,
+                    #103c68 100%
+                );
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+
+            background-image:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 52px 52px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 95%
+                );
+        }
+
+        .hero-inner {
+            min-height: 590px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding-top: 90px;
+            padding-bottom: 100px;
+
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 900px;
+            margin-inline: auto;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 27px;
+            padding: 9px 16px;
+
+            border: 1px solid rgba(115, 220, 239, 0.28);
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, 0.055);
+
+            color: #d9f7fc;
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-label span {
+            width: 7px;
+            height: 7px;
+
+            background: var(--cyan);
+            border-radius: 50%;
+
+            box-shadow: 0 0 12px rgba(67, 213, 232, 0.7);
+        }
+
+        .hero h1 {
+            max-width: 880px;
+            margin: 0 auto 25px;
+
+            color: var(--white);
+
+            font-size: clamp(42px, 7vw, 76px);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -2.8px;
+        }
+
+        .hero h1 .highlight {
+            display: block;
+            color: var(--cyan);
+        }
+
+        .hero-description {
+            max-width: 690px;
+            margin: 0 auto;
+
+            color: #d1dceb;
+
+            font-size: clamp(15px, 2vw, 18px);
+            line-height: 1.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+
+            margin-top: 36px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 52px;
+            padding: 14px 25px;
+
+            border: 1px solid transparent;
+            border-radius: 9px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            color: var(--navy);
+            background: var(--cyan);
+
+            box-shadow: 0 10px 28px rgba(67, 213, 232, 0.16);
+        }
+
+        .btn-primary:hover {
+            background: #75e5f1;
+            box-shadow: 0 14px 32px rgba(67, 213, 232, 0.23);
+        }
+
+        .btn-outline {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.035);
+            border-color: rgba(255, 255, 255, 0.30);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-bottom {
+            height: 5px;
+
+            background: linear-gradient(
+                90deg,
+                var(--blue),
+                var(--cyan),
+                #8beaf5
+            );
+        }
+
+        /* =========================================
+           4. ABOUT SPORTZEN
+        ========================================= */
+
+        .about-section {
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f8fafd 100%
+                );
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            align-items: stretch;
+            gap: 48px;
+        }
+
+        .about-panel {
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            min-height: 350px;
+            padding: 44px;
+
+            border-radius: var(--radius);
+
+            color: var(--white);
+
+            background:
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(67, 213, 232, 0.18),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    145deg,
+                    #07172e,
+                    #103c68
+                );
+
+            box-shadow: var(--shadow);
+        }
+
+        .about-panel::after {
+            content: "";
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            right: -70px;
+            bottom: -80px;
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 0 25px rgba(255, 255, 255, 0.025),
+                0 0 0 50px rgba(255, 255, 255, 0.02);
+        }
+
+        .about-panel .eyebrow {
+            color: var(--cyan);
+        }
+
+        .about-panel h3 {
+            position: relative;
+            z-index: 1;
+
+            max-width: 360px;
+            margin-bottom: 20px;
+
+            font-size: clamp(27px, 3vw, 36px);
+            line-height: 1.25;
+            letter-spacing: -0.8px;
+        }
+
+        .about-panel p {
+            position: relative;
+            z-index: 1;
+
+            color: #d2deed;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .about-content {
+            align-self: center;
+        }
+
+        .about-content h2 {
+            color: var(--navy);
+
+            margin-bottom: 22px;
+
+            font-size: clamp(29px, 4vw, 42px);
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+        }
+
+        .about-content > p {
+            margin-bottom: 18px;
+
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.95;
+        }
+
+        .about-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+
+            margin-top: 28px;
+        }
+
+        .about-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+
+            padding: 15px;
+
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .point-icon {
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 34px;
+            height: 34px;
+
+            border-radius: 9px;
+
+            color: var(--blue);
+            background: #eaf5ff;
+
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .about-point strong {
+            display: block;
+            color: var(--navy);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .about-point span {
+            display: block;
+            margin-top: 3px;
+
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           5. OUR PROGRAMMES
+           Programme photo appears ONLY here.
+           object-fit: contain keeps the whole
+           image visible without cropping.
+        ========================================= */
+
+        .programmes-section {
+            background:
+                linear-gradient(
+                    180deg,
+                    #f3f7fc 0%,
+                    #edf3fa 100%
+                );
+        }
+
+        .programme-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 48px;
+
+            margin-bottom: 46px;
+            padding: 28px;
+
+            background: var(--white);
+            border: 1px solid #e5ebf4;
+            border-radius: 22px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .programme-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            min-height: 320px;
+            padding: 18px;
+
+            overflow: hidden;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #edf4fb,
+                    #f9fbfe
+                );
+
+            border: 1px solid #e6edf5;
+        }
+
+        .programme-image img {
+            display: block;
+
+            width: 100%;
+            height: 340px;
+            min-height: 0;
+
+            object-fit: contain;
+            object-position: center;
+
+            border-radius: 10px;
+        }
+
+        .programme-feature-content {
+            padding: 14px 16px 14px 0;
+        }
+
+        .programme-feature-content .eyebrow {
+            margin-bottom: 13px;
+        }
+
+        .programme-feature-content h3 {
+            margin-bottom: 18px;
+
+            color: var(--navy);
+
+            font-size: clamp(26px, 3vw, 36px);
+            line-height: 1.25;
+            letter-spacing: -0.8px;
+        }
+
+        .programme-feature-content p {
+            margin-bottom: 18px;
+
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.95;
+        }
+
+        .programme-list {
+            list-style: none;
+
+            display: grid;
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .programme-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+
+            color: #33435a;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .programme-list li::before {
+            content: "✓";
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 21px;
+            height: 21px;
+
+            border-radius: 50%;
+
+            background: #e2f8fa;
+            color: #087d92;
+
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .programme-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .programme-card {
+            position: relative;
+            overflow: hidden;
+
+            min-height: 230px;
+            padding: 30px;
+
+            border: 1px solid #e0e8f2;
+            border-radius: 16px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .programme-card::before {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            height: 3px;
+
+            background: linear-gradient(
+                90deg,
+                var(--blue),
+                var(--cyan)
+            );
+
+            transform: scaleX(0);
+            transform-origin: left;
+
+            transition: transform 0.25s ease;
+        }
+
+        .programme-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #cbd9eb;
+
+            box-shadow:
+                0 18px 38px rgba(7, 23, 46, 0.09);
+        }
+
+        .programme-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .programme-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 43px;
+            height: 43px;
+
+            margin-bottom: 23px;
+
+            color: var(--blue);
+            background: #eaf3fd;
+
+            border-radius: 12px;
+
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .programme-card h3 {
+            margin-bottom: 12px;
+
+            color: var(--navy);
+
+            font-size: 19px;
+            line-height: 1.4;
+        }
+
+        .programme-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.85;
+        }
+
+        /* =========================================
+           6. OUR APPROACH
+        ========================================= */
+
+        .approach-section {
+            position: relative;
+            overflow: hidden;
+
+            color: var(--white);
+
+            background:
+                radial-gradient(
+                    circle at 100% 0%,
+                    rgba(39, 115, 185, 0.22),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    125deg,
+                    #07172e,
+                    #0b2b50
+                );
+        }
+
+        .approach-section .section-heading h2 {
+            color: var(--white);
+        }
+
+        .approach-section .section-heading p {
+            color: #c4d3e6;
+        }
+
+        .approach-section .eyebrow {
+            color: var(--cyan);
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .approach-card {
+            padding: 29px 24px;
+
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 15px;
+
+            background: rgba(255, 255, 255, 0.045);
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .approach-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .approach-step {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 42px;
+            height: 42px;
+
+            margin-bottom: 22px;
+
+            border-radius: 12px;
+
+            background: rgba(67, 213, 232, 0.12);
+            border: 1px solid rgba(67, 213, 232, 0.25);
+
+            color: var(--cyan);
+
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .approach-card h3 {
+            margin-bottom: 12px;
+
+            color: var(--white);
+
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .approach-card p {
+            color: #c2d0e0;
+            font-size: 13px;
+            line-height: 1.85;
+        }
+
+        /* =========================================
+           7. SCHOOL PARTNERSHIPS
+        ========================================= */
+
+        .partnership-section {
+            background: var(--white);
+        }
+
+        .partnership-layout {
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .partnership-content h2 {
+            max-width: 600px;
+
+            margin-bottom: 23px;
+
+            color: var(--navy);
+
+            font-size: clamp(30px, 4vw, 45px);
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+        }
+
+        .partnership-content > p {
+            max-width: 600px;
+
+            margin-bottom: 20px;
+
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.95;
+        }
+
+        .partnership-points {
+            display: grid;
+            gap: 15px;
+
+            margin-top: 30px;
+        }
+
+        .partnership-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .partnership-point .point-icon {
+            width: 39px;
+            height: 39px;
+        }
+
+        .partnership-point h3 {
+            margin-bottom: 4px;
+
+            color: var(--navy);
+            font-size: 15px;
+        }
+
+        .partnership-point p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .partnership-cta {
+            position: relative;
+            overflow: hidden;
+
+            padding: 38px;
+
+            border-radius: 20px;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0%,
+                    rgba(67, 213, 232, 0.17),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    145deg,
+                    #0a1e39,
+                    #10477b
+                );
+
+            color: var(--white);
+
+            box-shadow: var(--shadow);
+        }
+
+        .partnership-cta .small-label {
+            display: block;
+
+            margin-bottom: 16px;
+
+            color: var(--cyan);
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .partnership-cta h3 {
+            margin-bottom: 17px;
+
+            color: var(--white);
+
+            font-size: 28px;
+            line-height: 1.3;
+            letter-spacing: -0.6px;
+        }
+
+        .partnership-cta p {
+            margin-bottom: 26px;
+
+            color: #d0deed;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* =========================================
+           8. CONTACT SECTION
+        ========================================= */
+
+        .contact-section {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    ellipse at 0% 100%,
+                    rgba(67, 213, 232, 0.11),
+                    transparent 40%
+                ),
+                linear-gradient(
+                    180deg,
+                    #f3f7fc,
+                    #eaf1f9
+                );
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .contact-intro h2 {
+            margin-bottom: 22px;
+
+            color: var(--navy);
+
+            font-size: clamp(32px, 4vw, 45px);
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+        }
+
+        .contact-intro > p {
+            margin-bottom: 28px;
+
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.95;
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 17px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            width: 43px;
+            height: 43px;
+
+            border: 1px solid #d8e7f6;
+            border-radius: 12px;
+
+            background: var(--white);
+
+            color: var(--blue);
+
+            font-size: 18px;
+        }
+
+        .contact-detail h3 {
+            margin-bottom: 3px;
+
+            color: var(--navy);
+            font-size: 14px;
+        }
+
+        .contact-detail p,
+        .contact-detail a {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+
+            overflow-wrap: anywhere;
+        }
+
+        .contact-detail a:hover {
+            color: var(--blue);
+            text-decoration: underline;
+        }
+
+        .contact-card {
+            padding: 38px;
+
+            background: var(--white);
+            border: 1px solid #e1e9f3;
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 55px rgba(7, 23, 46, 0.09);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 13px;
+
+            color: var(--navy);
+
+            font-size: 25px;
+            line-height: 1.3;
+        }
+
+        .contact-card > p {
+            margin-bottom: 25px;
+
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .contact-actions {
+            display: grid;
+            gap: 13px;
+        }
+
+        .contact-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+
+            padding: 16px 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: #fbfcfe;
+
+            transition:
+                border-color 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .contact-action:hover {
+            transform: translateY(-2px);
+
+            border-color: #a8c9e9;
+            background: #f3f8fe;
+        }
+
+        .contact-action-text strong {
+            display: block;
+
+            color: var(--navy);
+            font-size: 13px;
+        }
+
+        .contact-action-text span {
+            display: block;
+            margin-top: 3px;
+
+            color: var(--muted);
+            font-size: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        .action-arrow {
+            flex-shrink: 0;
+
+            color: var(--blue);
+            font-size: 20px;
+        }
+
+        /* =========================================
+           9. FINAL CALL TO ACTION
+        ========================================= */
+
+        .final-cta {
+            padding: 65px 0;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    #0c2b50,
+                    #13589a
+                );
+
+            color: var(--white);
+        }
+
+        .final-cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .final-cta h2 {
+            margin-bottom: 10px;
+
+            color: var(--white);
+
+            font-size: clamp(25px, 3vw, 36px);
+            line-height: 1.25;
+            letter-spacing: -0.7px;
+        }
+
+        .final-cta p {
+            color: #d2e2f4;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .final-cta .btn {
+            flex-shrink: 0;
+        }
+
+        /* =========================================
+           10. FOOTER
+        ========================================= */
+
+        .site-footer {
+            padding: 54px 0 22px;
+
+            background: #051225;
+            color: var(--white);
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 50px;
+
+            padding-bottom: 40px;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .footer-brand img {
+            width: 175px;
+            height: 70px;
+
+            padding: 5px;
+
+            object-fit: contain;
+            object-position: left center;
+
+            background: var(--white);
+            border-radius: 8px;
+        }
+
+        .footer-brand p {
+            max-width: 340px;
+
+            margin-top: 18px;
+
+            color: #b8c7d9;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 18px;
+
+            color: var(--white);
+
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 11px;
+
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #b8c7d9;
+            font-size: 13px;
+
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-contact p {
+            margin-bottom: 12px;
+
+            color: #b8c7d9;
+            font-size: 13px;
+            line-height: 1.8;
+
+            overflow-wrap: anywhere;
+        }
+
+        .footer-contact a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+
+            padding-top: 22px;
+        }
+
+        .footer-bottom p {
+            color: #92a5bb;
+            font-size: 12px;
+        }
+
+        .footer-tagline {
+            color: var(--cyan) !important;
+
+            font-size: 11px !important;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        /* =========================================
+           11. RESPONSIVE DESIGN
+        ========================================= */
+
+        @media (max-width: 1000px) {
+            .nav-links {
+                gap: 18px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .brand img {
+                width: 155px;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr 1.1fr;
+                gap: 30px;
+            }
+
+            .about-panel {
+                padding: 32px;
+            }
+
+            .programme-feature {
+                gap: 30px;
+            }
+
+            .programme-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partnership-layout {
+                gap: 35px;
+            }
+
+            .footer-main {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .container {
+                width: min(
+                    var(--container),
+                    calc(100% - 36px)
+                );
+            }
+
+            .section {
+                padding: 72px 0;
+            }
+
+            .navbar {
+                min-height: 74px;
+            }
+
+            .brand img {
+                width: 150px;
+                height: 57px;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: calc(100% + 1px);
+                left: 0;
+                right: 0;
+
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+
+                padding: 12px 18px 20px;
+
+                background: var(--white);
+
+                border-bottom: 1px solid var(--border);
+
+                box-shadow:
+                    0 18px 28px rgba(7, 23, 46, 0.08);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+
+                padding: 13px 12px;
+
+                font-size: 14px;
+            }
+
+            .nav-links .nav-cta {
+                margin-top: 7px;
+                text-align: center;
+            }
+
+            .hero-inner {
+                min-height: 530px;
+
+                padding-top: 75px;
+                padding-bottom: 80px;
+            }
+
+            .hero h1 {
+                font-size: clamp(40px, 10vw, 61px);
+                letter-spacing: -1.8px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .section-heading {
+                margin-bottom: 38px;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .about-panel {
+                min-height: auto;
+                padding: 34px;
+            }
+
+            .about-content h2 {
+                font-size: 34px;
+            }
+
+            .programme-feature {
+                grid-template-columns: 1fr;
+                gap: 28px;
+
+                padding: 18px;
+            }
+
+            .programme-image {
+                min-height: 0;
+                padding: 12px;
+            }
+
+            .programme-image img {
+                width: 100%;
+                height: 300px;
+                min-height: 0;
+
+                object-fit: contain;
+                object-position: center;
+            }
+
+            .programme-feature-content {
+                padding: 4px 8px 12px;
+            }
+
+            .programme-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .programme-card {
+                min-height: auto;
+                padding: 26px;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .approach-card {
+                padding: 24px 19px;
+            }
+
+            .partnership-layout {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .partnership-content h2 {
+                font-size: 35px;
+            }
+
+            .partnership-cta {
+                padding: 30px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .contact-intro h2 {
+                font-size: 36px;
+            }
+
+            .contact-card {
+                padding: 28px;
+            }
+
+            .final-cta-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 35px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: calc(100% - 30px);
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero-inner {
+                min-height: 500px;
+
+                padding-top: 62px;
+                padding-bottom: 65px;
+            }
+
+            .hero-label {
+                font-size: 9px;
+                letter-spacing: 1.5px;
+            }
+
+            .hero h1 {
+                font-size: 41px;
+                letter-spacing: -1.4px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                line-height: 1.85;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .section-heading h2 {
+                font-size: 31px;
+            }
+
+            .about-panel {
+                padding: 28px;
+            }
+
+            .about-content h2,
+            .partnership-content h2,
+            .contact-intro h2 {
+                font-size: 31px;
+            }
+
+            .about-points {
+                grid-template-columns: 1fr;
+            }
+
+            .programme-image img {
+                height: 250px;
+                object-fit: contain;
+            }
+
+            .programme-feature-content h3 {
+                font-size: 28px;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .approach-card {
+                min-height: auto;
+            }
+
+            .partnership-cta {
+                padding: 26px;
+            }
+
+            .contact-card {
+                padding: 23px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+            }
+
+            .footer-bottom {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        /* Respect reduced-motion preferences */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
-  <header>
-    <div class="container navbar">
+    <header class="site-header">
+        <div class="container navbar">
 
-      <a href="#home" class="brand" aria-label="SPORTZEN home">
-        <div class="logo-box">
-          <img src="./sportzen-logo.jpg" alt="SPORTZEN logo">
-        </div>
-
-        <div>
-          <div class="brand-name">SPORTZEN</div>
-          <div class="brand-tagline">TRAIN • PLAY • GROW TOGETHER</div>
-        </div>
-      </a>
-
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="navLinks">
-        ☰
-      </button>
-
-      <nav aria-label="Main navigation">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#programmes">Programmes</a></li>
-          <li><a href="#partnerships">School Partnerships</a></li>
-          <li><a href="#contact" class="nav-cta">Contact Us</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </header>
-
-
-  <main>
-
-    <!-- HOME -->
-
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-
-        <div>
-          <span class="eyebrow">
-            Physical Education • Sports • Movement
-          </span>
-
-          <h1>
-            Helping Young Students
-            <span>Move, Learn & Grow.</span>
-          </h1>
-
-          <p class="hero-copy">
-            SPORTZEN brings together physical education, sports
-            training and engaging movement activities designed
-            around children's developmental needs.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#programmes" class="btn btn-primary">
-              Explore Our Programmes →
+            <a
+                class="brand"
+                href="#home"
+                aria-label="SPORTZEN home"
+            >
+                <img
+                    src="./sportzen-logo.jpg"
+                    alt="SPORTZEN logo"
+                >
             </a>
 
-            <a href="#contact" class="btn btn-outline">
-              Partner With Us
-            </a>
-          </div>
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="navLinks"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
 
-          <p class="hero-note">
-            TRAIN • PLAY • GROW TOGETHER
-          </p>
-        </div>
+            <nav aria-label="Main navigation">
+                <ul class="nav-links" id="navLinks">
 
-        <div class="hero-photo">
-          <img
-            src="./sportzen-programme.jpeg"
-            alt="Children participating in SPORTZEN movement activities"
-            fetchpriority="high">
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
 
-          <div class="photo-label">
-            <strong>Movement. Learning. Confidence.</strong>
-            <span>Encouraging active participation through play.</span>
-          </div>
-        </div>
+                    <li>
+                        <a href="#about">About Us</a>
+                    </li>
 
-      </div>
-    </section>
+                    <li>
+                        <a href="#programmes">Programmes</a>
+                    </li>
 
+                    <li>
+                        <a href="#approach">Our Approach</a>
+                    </li>
 
-    <!-- ABOUT SPORTZEN -->
+                    <li>
+                        <a href="#partnerships">For Schools</a>
+                    </li>
 
-    <section class="section" id="about">
-      <div class="container about-grid">
+                    <li>
+                        <a class="nav-cta" href="#contact">
+                            Contact Us
+                        </a>
+                    </li>
 
-        <div class="about-panel">
-          <span class="eyebrow">About SPORTZEN</span>
-
-          <h3>
-            Building the foundations for active young learners.
-          </h3>
-
-          <p>
-            Sportzen is a physical education programme focused
-            on young children, using age-appropriate games and
-            movement activities to develop fundamental movement,
-            coordination, confidence and active habits through
-            engaging physical experiences.
-          </p>
-        </div>
-
-        <div class="about-content">
-          <span class="eyebrow">Our Approach</span>
-
-          <h2>Every movement is an opportunity to learn.</h2>
-
-          <p>
-            Our programme focuses on making physical activity
-            engaging, structured and suitable for children's
-            developmental stages.
-          </p>
-
-          <p>
-            Through planned games, movement exercises and sports
-            activities, SPORTZEN aims to create opportunities for
-            children to practise physical skills and participate
-            actively.
-          </p>
-
-          <ul class="feature-list">
-            <li>Fundamental movement</li>
-            <li>Balance and coordination</li>
-            <li>Age-appropriate activities</li>
-            <li>Physical confidence</li>
-            <li>Active participation</li>
-            <li>Sports skill development</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- OUR PROGRAMMES: PHOTO FEATURE -->
-
-    <section class="section programmes-section" id="programmes">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">What We Offer</span>
-
-          <h2>Our Programmes</h2>
-
-          <p>
-            Structured physical education, movement activities
-            and sports programmes designed around age groups,
-            school facilities and programme requirements.
-          </p>
-        </div>
-
-        <div class="programme-feature">
-
-          <div class="programme-image">
-            <img
-              src="./sportzen-programme.jpeg"
-              alt="Children participating in a SPORTZEN physical activity programme"
-              loading="lazy">
-          </div>
-
-          <div class="programme-description">
-            <span class="eyebrow">Learning Through Movement</span>
-
-            <h3>Active experiences for growing minds and bodies.</h3>
-
-            <p>
-              Our physical activities give children opportunities
-              to move, practise coordination, explore movement
-              challenges and participate in structured games.
-            </p>
-
-            <p>
-              Activities are planned according to the age group,
-              available facilities and the school's requirements.
-            </p>
-
-            <ul>
-              <li>Movement activities</li>
-              <li>Balance exercises</li>
-              <li>Agility challenges</li>
-              <li>Physical games</li>
-              <li>Sports practice</li>
-              <li>Group activities</li>
-            </ul>
-          </div>
+                </ul>
+            </nav>
 
         </div>
+    </header>
 
 
-        <!-- PROGRAMME CARDS -->
+    <main>
 
-        <div class="programme-grid">
+        <!-- =========================================
+             HERO
+             Intentionally contains NO programme photo.
+        ========================================== -->
 
-          <article class="programme-card">
-            <div class="programme-icon" aria-hidden="true">🏃</div>
-            <h3>Physical Education</h3>
-            <p>
-              Structured physical education sessions and movement
-              activities suited to students' age groups.
-            </p>
-          </article>
+        <section class="hero" id="home">
 
-          <article class="programme-card">
-            <div class="programme-icon" aria-hidden="true">🛼</div>
-            <h3>Skating</h3>
-            <p>
-              Skating and skating-related activities planned
-              according to facilities and programme requirements.
-            </p>
-          </article>
+            <div class="container hero-inner">
 
-          <article class="programme-card">
-            <div class="programme-icon" aria-hidden="true">⚡</div>
-            <h3>Agility Training</h3>
-            <p>
-              Movement challenges that provide opportunities
-              to practise agility, reaction and body control.
-            </p>
-          </article>
+                <div class="hero-content">
 
-          <article class="programme-card">
-            <div class="programme-icon" aria-hidden="true">⚖️</div>
-            <h3>Balance & Coordination</h3>
-            <p>
-              Activities designed to practise balance,
-              coordination and controlled movement.
-            </p>
-          </article>
+                    <div class="hero-label">
+                        <span></span>
+                        TRAIN • PLAY • GROW TOGETHER
+                    </div>
 
-          <article class="programme-card">
-            <div class="programme-icon" aria-hidden="true">🎯</div>
-            <h3>Motor-Skill Development</h3>
-            <p>
-              Age-appropriate activities that help children
-              practise fundamental movement skills.
-            </p>
-          </article>
+                    <h1>
+                        Building Active
+                        <span class="highlight">
+                            Minds & Bodies
+                        </span>
+                    </h1>
 
-          <article class="programme-card">
-            <div class="programme-icon" aria-hidden="true">🤸</div>
-            <h3>Games & Physical Activities</h3>
-            <p>
-              Engaging games and physical activities selected
-              to suit different age groups.
-            </p>
-          </article>
+                    <p class="hero-description">
+                        Engaging physical education and sports
+                        experiences that help young children
+                        develop fundamental movement skills,
+                        coordination, confidence and healthy
+                        active habits.
+                    </p>
 
-          <article class="programme-card">
-            <div class="programme-icon" aria-hidden="true">💪</div>
-            <h3>Fitness & Basic Athletics</h3>
-            <p>
-              Basic fitness exercises and introductory athletic
-              activities appropriate to participants.
-            </p>
-          </article>
+                    <div class="hero-actions">
 
-          <article class="programme-card">
-            <div class="programme-icon" aria-hidden="true">🏅</div>
-            <h3>Sports Skill Development</h3>
-            <p>
-              Opportunities for students to learn, practise
-              and develop sports-related skills.
-            </p>
-          </article>
+                        <a
+                            class="btn btn-primary"
+                            href="#programmes"
+                        >
+                            Explore Our Programmes
+                            <span aria-hidden="true">→</span>
+                        </a>
 
-          <article class="programme-card">
-            <div class="programme-icon" aria-hidden="true">🏆</div>
-            <h3>Sports Events & Activity Days</h3>
-            <p>
-              Sports events, competitions and activity days
-              arranged in coordination with schools.
-            </p>
-          </article>
+                        <a
+                            class="btn btn-outline"
+                            href="#contact"
+                        >
+                            Partner With Us
+                        </a>
 
-        </div>
+                    </div>
 
-        <p class="programme-note">
-          Programme activities are subject to age group,
-          school facilities, scheduling and mutually agreed
-          requirements.
-        </p>
+                </div>
 
-      </div>
-    </section>
-
-
-    <!-- SCHOOL PARTNERSHIPS -->
-
-    <section class="section" id="partnerships">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">Working Together</span>
-
-          <h2>School Partnerships</h2>
-
-          <p>
-            SPORTZEN proposes collaboration with schools to
-            support structured sports training, physical
-            education and age-appropriate physical activities.
-          </p>
-        </div>
-
-        <div class="partnership-grid">
-
-          <article class="partnership-card">
-            <div class="step-number">STEP 01</div>
-            <h3>Understand Requirements</h3>
-            <p>
-              Discuss the school's needs, student age groups,
-              available facilities and activity preferences.
-            </p>
-          </article>
-
-          <article class="partnership-card">
-            <div class="step-number">STEP 02</div>
-            <h3>Plan the Programme</h3>
-            <p>
-              Identify suitable activities, schedules,
-              equipment arrangements and programme scope.
-            </p>
-          </article>
-
-          <article class="partnership-card">
-            <div class="step-number">STEP 03</div>
-            <h3>Conduct Activities</h3>
-            <p>
-              Deliver agreed sports and physical education
-              sessions with appropriate activity planning.
-            </p>
-          </article>
-
-          <article class="partnership-card">
-            <div class="step-number">STEP 04</div>
-            <h3>Review & Coordinate</h3>
-            <p>
-              Coordinate with the school regarding activities,
-              student participation and future planning.
-            </p>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section class="section contact-section" id="contact">
-      <div class="container contact-grid">
-
-        <div>
-          <span class="eyebrow">Get in Touch</span>
-
-          <h2>Let's bring more movement into the school day.</h2>
-
-          <p class="contact-intro">
-            Interested in learning more about SPORTZEN's
-            physical education and sports programmes?
-            Contact us to discuss your school's requirements.
-          </p>
-
-          <div class="contact-items">
-
-            <div class="contact-item">
-              <span>Email</span>
-              <a href="mailto:sportzen2026@gmail.com">
-                sportzen2026@gmail.com
-              </a>
             </div>
 
-            <div class="contact-item">
-              <span>Phone</span>
-              <a href="tel:+919903591310">+91 99035 91310</a>
-              <br>
-              <a href="tel:+918317349333">+91 83173 49333</a>
+            <div class="hero-bottom"></div>
+
+        </section>
+
+
+        <!-- =========================================
+             ABOUT US
+        ========================================== -->
+
+        <section class="section about-section" id="about">
+
+            <div class="container">
+
+                <div class="about-layout">
+
+                    <div class="about-panel">
+
+                        <span class="eyebrow">
+                            About SPORTZEN
+                        </span>
+
+                        <h3>
+                            Every Child Deserves the Chance to Move.
+                        </h3>
+
+                        <p>
+                            Creating engaging physical experiences
+                            that encourage children to participate,
+                            explore movement and build confidence.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-content">
+
+                        <span class="eyebrow">
+                            Who We Are
+                        </span>
+
+                        <h2>
+                            Making Movement Meaningful.
+                        </h2>
+
+                        <p>
+                            SPORTZEN is a physical education programme
+                            focused on young children. We use
+                            age-appropriate games and movement
+                            activities to support the development
+                            of fundamental movement skills,
+                            coordination, confidence and active habits.
+                        </p>
+
+                        <p>
+                            Our approach centres on engaging physical
+                            experiences that encourage children to
+                            participate, practise skills and enjoy
+                            being active.
+                        </p>
+
+                        <div class="about-points">
+
+                            <div class="about-point">
+
+                                <div
+                                    class="point-icon"
+                                    aria-hidden="true"
+                                >
+                                    ✓
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Movement Skills
+                                    </strong>
+
+                                    <span>
+                                        Opportunities to practise
+                                        essential movement patterns.
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="about-point">
+
+                                <div
+                                    class="point-icon"
+                                    aria-hidden="true"
+                                >
+                                    ↗
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Confidence
+                                    </strong>
+
+                                    <span>
+                                        Encouraging children to
+                                        try, learn and participate.
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="about-point">
+
+                                <div
+                                    class="point-icon"
+                                    aria-hidden="true"
+                                >
+                                    ◎
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Coordination
+                                    </strong>
+
+                                    <span>
+                                        Activities involving balance
+                                        and body control.
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="about-point">
+
+                                <div
+                                    class="point-icon"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Active Habits
+                                    </strong>
+
+                                    <span>
+                                        Making participation in
+                                        physical activity enjoyable.
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="contact-item">
-              <span>Location</span>
-              <p>Bengaluru, Karnataka, India</p>
+        </section>
+
+
+        <!-- =========================================
+             OUR PROGRAMMES
+             The programme photo is used ONLY here.
+        ========================================== -->
+
+        <section
+            class="section programmes-section"
+            id="programmes"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        What We Offer
+                    </span>
+
+                    <h2>
+                        Our Programmes
+                    </h2>
+
+                    <p>
+                        Engaging activities designed to give
+                        children opportunities to practise movement,
+                        explore physical skills and enjoy active
+                        participation.
+                    </p>
+
+                </div>
+
+
+                <!-- Featured programme and the ONLY programme photo -->
+
+                <div class="programme-feature">
+
+                    <div class="programme-image">
+
+                        <img
+                            src="./sportzen-programme.jpeg"
+                            alt="SPORTZEN physical education programme"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="programme-feature-content">
+
+                        <span class="eyebrow">
+                            Move With Purpose
+                        </span>
+
+                        <h3>
+                            Physical Education for Young Learners
+                        </h3>
+
+                        <p>
+                            Our physical education activities use
+                            age-appropriate games and structured
+                            movement experiences to help children
+                            practise essential physical skills.
+                        </p>
+
+                        <p>
+                            Activities can be planned around
+                            movement development, coordination,
+                            balance, participation and the
+                            introduction of sports skills.
+                        </p>
+
+                        <ul class="programme-list">
+
+                            <li>
+                                Fundamental movement skills
+                            </li>
+
+                            <li>
+                                Balance and coordination
+                            </li>
+
+                            <li>
+                                Agility and motor-skill development
+                            </li>
+
+                            <li>
+                                Age-appropriate games and activities
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Programme cards: text and CSS only -->
+
+                <div class="programme-grid">
+
+                    <article class="programme-card">
+
+                        <div class="programme-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Fundamental Movement Skills
+                        </h3>
+
+                        <p>
+                            Activities that give children
+                            opportunities to practise basic
+                            movement patterns, body control
+                            and movement awareness.
+                        </p>
+
+                    </article>
+
+
+                    <article class="programme-card">
+
+                        <div class="programme-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Balance & Coordination
+                        </h3>
+
+                        <p>
+                            Movement activities that encourage
+                            balance, coordination and controlled
+                            movement through age-appropriate
+                            physical experiences.
+                        </p>
+
+                    </article>
+
+
+                    <article class="programme-card">
+
+                        <div class="programme-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Agility & Motor Skills
+                        </h3>
+
+                        <p>
+                            Activities involving movement,
+                            direction changes, body awareness
+                            and the practice of essential
+                            motor skills.
+                        </p>
+
+                    </article>
+
+
+                    <article class="programme-card">
+
+                        <div class="programme-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Skating
+                        </h3>
+
+                        <p>
+                            Skating activities can form part
+                            of a programme planned around
+                            children's needs, ability levels
+                            and appropriate safety measures.
+                        </p>
+
+                    </article>
+
+
+                    <article class="programme-card">
+
+                        <div class="programme-number">
+                            05
+                        </div>
+
+                        <h3>
+                            Fitness & Basic Athletics
+                        </h3>
+
+                        <p>
+                            Age-appropriate movement activities
+                            that introduce children to basic
+                            athletics, physical participation
+                            and active play.
+                        </p>
+
+                    </article>
+
+
+                    <article class="programme-card">
+
+                        <div class="programme-number">
+                            06
+                        </div>
+
+                        <h3>
+                            Sports Skills & Activity Days
+                        </h3>
+
+                        <p>
+                            Opportunities to introduce sports
+                            skills and organise engaging sports
+                            events or activity days suited to
+                            the school's requirements.
+                        </p>
+
+                    </article>
+
+                </div>
+
             </div>
 
-          </div>
+        </section>
+
+
+        <!-- =========================================
+             OUR APPROACH
+        ========================================== -->
+
+        <section
+            class="section approach-section"
+            id="approach"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        How We Work
+                    </span>
+
+                    <h2>
+                        A Thoughtful Approach to Movement
+                    </h2>
+
+                    <p>
+                        Physical education activities can be
+                        organised around the needs of the children,
+                        the school environment and the goals of
+                        the programme.
+                    </p>
+
+                </div>
+
+
+                <div class="approach-grid">
+
+                    <article class="approach-card">
+
+                        <div class="approach-step">
+                            01
+                        </div>
+
+                        <h3>
+                            Understand
+                        </h3>
+
+                        <p>
+                            Understand the school's requirements,
+                            available facilities and the needs
+                            of the participating children.
+                        </p>
+
+                    </article>
+
+
+                    <article class="approach-card">
+
+                        <div class="approach-step">
+                            02
+                        </div>
+
+                        <h3>
+                            Plan
+                        </h3>
+
+                        <p>
+                            Plan suitable activities based on
+                            the children's age, programme goals
+                            and available resources.
+                        </p>
+
+                    </article>
+
+
+                    <article class="approach-card">
+
+                        <div class="approach-step">
+                            03
+                        </div>
+
+                        <h3>
+                            Participate
+                        </h3>
+
+                        <p>
+                            Conduct engaging movement activities
+                            that encourage practice, participation
+                            and active learning.
+                        </p>
+
+                    </article>
+
+
+                    <article class="approach-card">
+
+                        <div class="approach-step">
+                            04
+                        </div>
+
+                        <h3>
+                            Review
+                        </h3>
+
+                        <p>
+                            Coordinate with the school to review
+                            activities and discuss programme
+                            requirements and next steps.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SCHOOL PARTNERSHIPS
+        ========================================== -->
+
+        <section
+            class="section partnership-section"
+            id="partnerships"
+        >
+
+            <div class="container">
+
+                <div class="partnership-layout">
+
+                    <div class="partnership-content">
+
+                        <span class="eyebrow">
+                            School Partnerships
+                        </span>
+
+                        <h2>
+                            Supporting Physical Education in Schools.
+                        </h2>
+
+                        <p>
+                            SPORTZEN welcomes conversations with
+                            schools interested in physical education
+                            and sports activities for children.
+                        </p>
+
+                        <p>
+                            Programme planning can be discussed
+                            according to the school's objectives,
+                            schedule, available facilities and
+                            participating children's needs.
+                        </p>
+
+
+                        <div class="partnership-points">
+
+                            <div class="partnership-point">
+
+                                <div
+                                    class="point-icon"
+                                    aria-hidden="true"
+                                >
+                                    ✓
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Discuss Your Requirements
+                                    </h3>
+
+                                    <p>
+                                        Share your school's goals,
+                                        schedule and activity needs.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="partnership-point">
+
+                                <div
+                                    class="point-icon"
+                                    aria-hidden="true"
+                                >
+                                    ✓
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Plan Suitable Activities
+                                    </h3>
+
+                                    <p>
+                                        Explore programme options
+                                        suited to your school.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="partnership-point">
+
+                                <div
+                                    class="point-icon"
+                                    aria-hidden="true"
+                                >
+                                    ✓
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Coordinate the Programme
+                                    </h3>
+
+                                    <p>
+                                        Discuss implementation,
+                                        scheduling and review.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="partnership-cta">
+
+                        <span class="small-label">
+                            Let's Connect
+                        </span>
+
+                        <h3>
+                            Looking for Physical Education Activities?
+                        </h3>
+
+                        <p>
+                            Tell us about your school and the
+                            physical education activities you
+                            would like to explore. We can discuss
+                            suitable programme options together.
+                        </p>
+
+                        <a
+                            class="btn btn-primary"
+                            href="#contact"
+                        >
+                            Discuss a Partnership
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CONTACT
+        ========================================== -->
+
+        <section
+            class="section contact-section"
+            id="contact"
+        >
+
+            <div class="container">
+
+                <div class="contact-layout">
+
+                    <div class="contact-intro">
+
+                        <span class="eyebrow">
+                            Contact SPORTZEN
+                        </span>
+
+                        <h2>
+                            Let's Start a Conversation.
+                        </h2>
+
+                        <p>
+                            Interested in our physical education
+                            and sports programmes? Get in touch
+                            to discuss your school's requirements
+                            and possible programme options.
+                        </p>
+
+
+                        <div class="contact-details">
+
+                            <div class="contact-detail">
+
+                                <div
+                                    class="contact-icon"
+                                    aria-hidden="true"
+                                >
+                                    @
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Email
+                                    </h3>
+
+                                    <a
+                                        href="mailto:sportzen2026@gmail.com"
+                                    >
+                                        sportzen2026@gmail.com
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+                            <div class="contact-detail">
+
+                                <div
+                                    class="contact-icon"
+                                    aria-hidden="true"
+                                >
+                                    ☎
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Phone
+                                    </h3>
+
+                                    <p>
+                                        <a href="tel:+919903595310">
+                                            +91 99035 95310
+                                        </a>
+                                        <br>
+
+                                        <a href="tel:+918317340933">
+                                            +91 83173 40933
+                                        </a>
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="contact-detail">
+
+                                <div
+                                    class="contact-icon"
+                                    aria-hidden="true"
+                                >
+                                    ⌖
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        Location
+                                    </h3>
+
+                                    <p>
+                                        Bengaluru, Karnataka, India
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <h3>
+                            Connect With Our Team
+                        </h3>
+
+                        <p>
+                            Choose the contact option that works
+                            best for you. We look forward to
+                            hearing about your requirements.
+                        </p>
+
+
+                        <div class="contact-actions">
+
+                            <a
+                                class="contact-action"
+                                href="mailto:sportzen2026@gmail.com?subject=SPORTZEN%20Programme%20Enquiry"
+                            >
+
+                                <span class="contact-action-text">
+                                    <strong>
+                                        Send an Email
+                                    </strong>
+
+                                    <span>
+                                        sportzen2026@gmail.com
+                                    </span>
+                                </span>
+
+                                <span
+                                    class="action-arrow"
+                                    aria-hidden="true"
+                                >
+                                    →
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                class="contact-action"
+                                href="tel:+919903595310"
+                            >
+
+                                <span class="contact-action-text">
+                                    <strong>
+                                        Call Us
+                                    </strong>
+
+                                    <span>
+                                        +91 99035 95310
+                                    </span>
+                                </span>
+
+                                <span
+                                    class="action-arrow"
+                                    aria-hidden="true"
+                                >
+                                    →
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                class="contact-action"
+                                href="tel:+918317340933"
+                            >
+
+                                <span class="contact-action-text">
+                                    <strong>
+                                        Alternative Contact
+                                    </strong>
+
+                                    <span>
+                                        +91 83173 40933
+                                    </span>
+                                </span>
+
+                                <span
+                                    class="action-arrow"
+                                    aria-hidden="true"
+                                >
+                                    →
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FINAL CALL TO ACTION
+        ========================================== -->
+
+        <section class="final-cta">
+
+            <div class="container final-cta-inner">
+
+                <div>
+                    <h2>
+                        Train. Play. Grow Together.
+                    </h2>
+
+                    <p>
+                        Let's explore engaging physical education
+                        opportunities for your school.
+                    </p>
+                </div>
+
+                <a
+                    class="btn btn-primary"
+                    href="mailto:sportzen2026@gmail.com?subject=SPORTZEN%20Enquiry"
+                >
+                    Contact SPORTZEN
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a href="#home" aria-label="SPORTZEN home">
+
+                        <img
+                            src="./sportzen-logo.jpg"
+                            alt="SPORTZEN logo"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+                    <p>
+                        SPORTZEN focuses on physical education
+                        and engaging movement experiences that
+                        encourage young children to develop
+                        fundamental skills, coordination,
+                        confidence and active habits.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Quick Links
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="#home">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#programmes">
+                                Our Programmes
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#approach">
+                                Our Approach
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#partnerships">
+                                School Partnerships
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-column footer-contact">
+
+                    <h3>
+                        Contact Information
+                    </h3>
+
+                    <p>
+                        Email:
+                        <br>
+
+                        <a href="mailto:sportzen2026@gmail.com">
+                            sportzen2026@gmail.com
+                        </a>
+                    </p>
+
+                    <p>
+                        Phone:
+                        <br>
+
+                        <a href="tel:+919903595310">
+                            +91 99035 95310
+                        </a>
+
+                        <br>
+
+                        <a href="tel:+918317340933">
+                            +91 83173 40933
+                        </a>
+                    </p>
+
+                    <p>
+                        Bengaluru, Karnataka, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © <span id="currentYear"></span> SPORTZEN.
+                    All rights reserved.
+                </p>
+
+                <p class="footer-tagline">
+                    TRAIN • PLAY • GROW TOGETHER
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="contact-card">
-          <h3>Connect with SPORTZEN</h3>
-
-          <p>
-            Contact us to discuss programme details,
-            school collaboration and activity planning.
-          </p>
-
-          <a
-            class="btn btn-primary"
-            href="mailto:sportzen2026@gmail.com?subject=SPORTZEN%20Programme%20Enquiry">
-            Send an Email →
-          </a>
-
-          <a class="btn btn-outline" href="tel:+919903591310">
-            Call SPORTZEN
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
+    </footer>
 
 
-  <!-- FOOTER -->
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
 
-  <footer>
-    <div class="container footer-inner">
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
 
-      <div>
-        <div class="footer-brand">SPORTZEN</div>
-        <div class="footer-tagline">TRAIN • PLAY • GROW TOGETHER</div>
-      </div>
+        // Mobile navigation toggle
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("open");
 
-      <p>
-        © <span id="year"></span> SPORTZEN. All rights reserved.
-      </p>
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
 
-      <a href="#home">Back to top ↑</a>
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
 
-    </div>
-  </footer>
+            menuToggle.textContent = isOpen ? "×" : "☰";
+        });
 
+        // Close the mobile menu after selecting a section
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("open");
 
-  <script>
-    // Automatically update the copyright year.
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-    // Mobile navigation menu.
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
 
-    menuToggle.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("open");
+                menuToggle.textContent = "☰";
+            });
+        });
 
-      menuToggle.setAttribute("aria-expanded", isOpen);
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-      );
-
-      menuToggle.textContent = isOpen ? "✕" : "☰";
-    });
-
-    // Close the mobile menu after selecting a section.
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation menu");
-        menuToggle.textContent = "☰";
-      });
-    });
-  </script>
+        // Keep the copyright year current
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
 
 </body>
 </html>
